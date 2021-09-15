@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab4f5d1e90c1b44788752ba5e586825, type: 3}
+  m_Name: Greater Soldier
+  m_EditorClassIdentifier: 
+  UnitName: Greater Soldier
+  UnitIcon: {fileID: 21300000, guid: a4b87a8933b218f428950b8df1c6d91c, type: 3}
+  UnitColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
