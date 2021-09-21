@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8000c3a42e697469daa693529e899f, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  Grid: {fileID: 11400000, guid: 1024ed955c1848749ac71be8ffad6077, type: 2}
+  Ground: {fileID: 11400000, guid: 1024ed955c1848749ac71be8ffad6077, type: 2}
   GridMargin: 1
-  Cells:
+  GroundCells:
   - {fileID: -4049964974470324531, guid: 255df3dda6114e54d9cfb72e1b46777f, type: 3}
   - {fileID: -4049964974470324531, guid: 4f4f065bb0b4a284f983b15ec6a3bda4, type: 3}
   - {fileID: -4049964974470324531, guid: f65e825276d2ee24891ae7f7bd916a4e, type: 3}
   - {fileID: -4049964974470324531, guid: 891972efe4f502e4d82d817e7d745dfb, type: 3}
+  Tower: {fileID: 6752778593511085629, guid: cb5cd285ebb359140ac9f06f0b453c14, type: 3}
+  Monster: {fileID: 4564205771685318254, guid: 912f16a0819f1c847a144da7b142948a, type: 3}
