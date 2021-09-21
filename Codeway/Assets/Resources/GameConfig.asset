@@ -9,23 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cdd4ad5f105bc4fa4187f9df505674, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b8000c3a42e697469daa693529e899f, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  MapGridWidth: 100
-  MapGridHeight: 100
-  Cell: {fileID: 6615910063189652242, guid: 5de3b85f15a944545a8bb03798e1c9f4, type: 3}
-  Pool: {fileID: 8083583914371095536, guid: 5aaada4375363ee4bb74bd34f6eddd51, type: 3}
-  BuildingTemplate: {fileID: 6433850267492192932, guid: a366816851556a0459076570754466b9,
-    type: 3}
-  BuildingSolid: {fileID: 8272792059329085670, guid: 11e1129c2828b754a8352e0ee9582e19,
-    type: 3}
-  Buildings:
-  - {fileID: 11400000, guid: d4d44a58303f080428805143979afaaa, type: 2}
-  - {fileID: 11400000, guid: 7dfc125659713c04c8488feb16db086d, type: 2}
-  - {fileID: 11400000, guid: 1922b8e983fe9204aafdf95b9e6738e8, type: 2}
-  - {fileID: 11400000, guid: 7fcc7ace134be544494bf0cbdd5b9bbb, type: 2}
-  - {fileID: 11400000, guid: 66859d28892ec2e4ea75338bd2d82e9a, type: 2}
-  MilitaryUnit: {fileID: 114930066954694020, guid: 4ef798119e6ed594b9b285b6b6fec9a5,
-    type: 3}
-  Marker: {fileID: 6153743949037867514, guid: 76f63f7cf27c48e4084a1b66655ad828, type: 3}
+  Grid: {fileID: 11400000, guid: 1024ed955c1848749ac71be8ffad6077, type: 2}
+  GridMargin: 1
+  Cells:
+  - {fileID: -4049964974470324531, guid: 255df3dda6114e54d9cfb72e1b46777f, type: 3}
+  - {fileID: -4049964974470324531, guid: 4f4f065bb0b4a284f983b15ec6a3bda4, type: 3}
+  - {fileID: -4049964974470324531, guid: f65e825276d2ee24891ae7f7bd916a4e, type: 3}
+  - {fileID: -4049964974470324531, guid: 891972efe4f502e4d82d817e7d745dfb, type: 3}
