@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour
     {
         if (pathIndex < _mc.Path.Count)
         {
+            _rotTween = transform.DORotate(Rot2D.RotationZ(transform.position, _mc.Path[pathIndex]), 1 / (speed * 2));
             _moveTween = transform.DOMove(_mc.Path[pathIndex], 1 / speed).SetEase(Ease.Linear).OnComplete(() => 
             {
                 Move(pathIndex + 1);
@@ -60,7 +61,7 @@ public class Monster : MonoBehaviour
     public void Kill() 
     {
         _mc.KillAllMonsters -= Kill;
-        
+        _rotTween.Kill();
         _moveTween.Kill();
         Destroy(gameObject);
     }

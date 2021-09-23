@@ -3,12 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Game Config")]
 public class GameConfigData : ScriptableObject 
 {
-    // Grid
-    public Array2D Ground;
-    public float GridMargin;
+    public Array2D Ground;      // Ground matrix
+    public Cell[] GroundCells;  // Cell Types
+    public float GridMargin;    // Margin btw cells
 
-    public Cell[] GroundCells;
-    public Tower Tower;
-
-    public Monster Monster;
+    public Tower Tower;     // Tower Prefab
+    public Monster Monster; // Monster Prefab
 }

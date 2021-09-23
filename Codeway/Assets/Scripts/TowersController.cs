@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class TowersController : MonoBehaviour
 {
-    private List<Vector2> _buildAreas;
+    private List<Vector2> _buildAreas;  // Holds available building positions
 
 
+    // Spawn new tower at a random position if there is a empty place
     public void SpawnTower() 
     {
         if (_buildAreas == null)
@@ -19,7 +20,7 @@ public class TowersController : MonoBehaviour
             Vector2 pos =_buildAreas[buildAt];
             _buildAreas.RemoveAt(buildAt);
             
-            Tower tower = Instantiate(GameManager.Instance.GameConfig.Tower, pos, Quaternion.identity, transform);
+            Instantiate(GameManager.Instance.GameConfig.Tower, pos, Quaternion.identity, transform);
         }
     }
 }
