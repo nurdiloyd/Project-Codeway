@@ -5,20 +5,30 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] protected float range;
     [SerializeField] [Range(10, 50)] protected int damagePower = 10;
+    [SerializeField] protected ParticleSystem buildVFX;
     [SerializeField] protected Transform top;
+    [SerializeField] protected ParticleSystem bulletVFX;
+
 
     private float _attackTimer;
     private Monster _target;
-    private LineRenderer _line;
 
+    
+    private void Start() {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack);
+
+        Instantiate(buildVFX, transform.position, Quaternion.identity);
+    }
 
     private void Update() 
     {
-        SetTarget();    // Sets if there is monster in the range
-        Aim();          // Sets rotation of the Top towards target
-        Attack();       // Attacks if there is target
+        SetTarget();    
+        Aim();          
+        Attack();       
     }
 
+    // Sets if there is monster in the range
     private void SetTarget()
     {
         Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, range);
@@ -40,6 +50,7 @@ public class Tower : MonoBehaviour
         }
     }
 
+    // Sets rotation of the Top towards target
     private void Aim()
     {
         if (_target)
@@ -51,6 +62,7 @@ public class Tower : MonoBehaviour
         }
     }
 
+    // Attacks if there is target
     private void Attack()
     {
         if (_target && _attackTimer < 0)
@@ -60,7 +72,11 @@ public class Tower : MonoBehaviour
                 GameManager.Instance.IncrementKill();
             }
 
+            // SFX
+            GameManager.Instance.AudioManager.Play("Fire");
+            // VFX
             SetLine();
+
             _attackTimer = 1;
         }
 
@@ -69,23 +85,14 @@ public class Tower : MonoBehaviour
 
     private void SetLine()
     {
-        if (_line == null)
-        {
-            _line = GetComponent<LineRenderer>();
-        }
+        bulletVFX.gameObject.SetActive(false);
+        bulletVFX.transform.position = transform.position;     
+        bulletVFX.gameObject.SetActive(true);
 
-        Vector3 pos = transform.position;
-        _line.SetPosition(0, pos);
-        _line.SetPosition(1, pos);
-        _line.enabled = true;
-        DOTween.To(()=> pos, x=> pos = x, _target.transform.position, 0.1f)
-        .OnUpdate(() => 
-        {
-            _line.SetPosition(1, pos);
-        })
+        bulletVFX.transform.DOMove(_target.transform.position, 0.05f).SetEase(Ease.Linear)
         .OnComplete(() => 
         {
-            _line.enabled = false;
+            bulletVFX.Stop();
         });
     }
 }

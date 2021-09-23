@@ -17,4 +17,9 @@ public class GUIController : MonoBehaviour
     {
         _killCounter.text = "KILL " + count;
     }
+
+    public void StopTheGame()
+    {
+        GameManager.Instance.StopTheGame();
+    }
 }

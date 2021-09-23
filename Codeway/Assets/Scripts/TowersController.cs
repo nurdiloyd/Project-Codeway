@@ -16,6 +16,9 @@ public class TowersController : MonoBehaviour
         
         if (_buildAreas.Count > 0)
         {
+            // SFX
+            GameManager.Instance.AudioManager.Play("TowerBuild");
+
             int buildAt = Random.Range(0, _buildAreas.Count);
             Vector2 pos =_buildAreas[buildAt];
             _buildAreas.RemoveAt(buildAt);

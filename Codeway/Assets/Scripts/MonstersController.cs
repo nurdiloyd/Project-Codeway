@@ -23,13 +23,16 @@ public class MonstersController : MonoBehaviour
 
     private IEnumerator SpawnMonsters()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         int id = 0;
         while (_spawn)
         {
             for (int i = 0; i < monstersPerWave; i++)
             {
+                // SFX
+                GameManager.Instance.AudioManager.Play("MonsterSpawn");
+                
                 Monster monster = Instantiate(GameManager.Instance.GameConfig.Monster, Path[0], Quaternion.identity, transform);
                 monster.Init(this, id);
                 monster.Move(1);
@@ -42,7 +45,8 @@ public class MonstersController : MonoBehaviour
         }
     }
 
-    public void AMonsterArrived() 
+    // When a monster arrived to the end
+    public void AMonsterArrived()
     {
         _spawn = false;
         KillAllMonsters?.Invoke();

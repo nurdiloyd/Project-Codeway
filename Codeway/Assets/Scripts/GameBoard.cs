@@ -20,6 +20,7 @@ public class GameBoard : MonoBehaviour
         CheckBuildableAreas();
     }
 
+    // Spawns Ground cells to show map
     private void SpawnCells(int[,] grid) 
     {
         Transform groundParent = new GameObject("Ground").transform;
@@ -55,6 +56,7 @@ public class GameBoard : MonoBehaviour
         }
     }
 
+    // Lists the path points positions
     private void CreatePath() 
     {
         Vector2Int index = _pathStartIndex;
@@ -85,6 +87,7 @@ public class GameBoard : MonoBehaviour
         }
     }
 
+    // Lists the buildable points positions
     private void CheckBuildableAreas() 
     {
         for (int i = 1; i < _height - 1; i++) 
@@ -143,6 +146,7 @@ public class GameBoard : MonoBehaviour
     {
         return _path;
     }
+
     public List<Vector2> GetBuildAreas() 
     {
         return _buildAreas;
