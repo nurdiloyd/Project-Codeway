@@ -1,30 +1,51 @@
 using System.Collections.Generic;
 using System.Collections;
+using System;
 using UnityEngine;
 
 public class MonstersController : MonoBehaviour
 {
-    private GameManager _gm;
-    private List<Monster> _monsters = new List<Monster>();
+    public event Action KillAllMonsters;
+
+    [HideInInspector] public List<Vector2> Path;
+    [SerializeField] protected int monstersPerWave = 5;
+    [SerializeField] protected float timeBtwSpawns = 1;
+    [SerializeField] protected float timeBtwWaves = 7;
+
+    private bool _spawn = true;
 
 
-    public void Init(GameManager manager) {
-        _gm = manager;
+    public void Init() {
+        Path = GameManager.Instance.GameBoard.GetPath();
 
-        StartCoroutine(Spawning());
+        StartCoroutine(SpawnMonsters());
     }
 
-    private IEnumerator Spawning()
+    private IEnumerator SpawnMonsters()
     {
-        while (true)
+        yield return new WaitForSeconds(3);
+
+        int id = 0;
+        while (_spawn)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < monstersPerWave; i++)
             {
-                Instantiate(_gm.GameConfig.Monster, Vector3.zero, Quaternion.identity, transform);
-                yield return new WaitForSeconds(1);
+                Monster monster = Instantiate(GameManager.Instance.GameConfig.Monster, Path[0], Quaternion.identity, transform);
+                monster.Init(this, id);
+                monster.Move(1);
+                id += 1;
+
+                yield return new WaitForSeconds(timeBtwSpawns);
             }
 
-            yield return new WaitForSeconds(10);
-        }        
+            yield return new WaitForSeconds(timeBtwWaves);
+        }
+    }
+
+    public void AMonsterArrived() 
+    {
+        _spawn = false;
+        KillAllMonsters?.Invoke();
+        GameManager.Instance.GameOver();
     }
 }
