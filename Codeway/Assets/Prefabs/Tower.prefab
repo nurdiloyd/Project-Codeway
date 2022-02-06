@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 6752778593511085630}
   - component: {fileID: -54207328994568155}
   - component: {fileID: 6752778593511085629}
+  - component: {fileID: 3680919838148187171}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -398,6 +399,25 @@ MonoBehaviour:
   buildVFX: {fileID: 1126865724879820511, guid: 9605a671f8850f34f81058bcae16a13f, type: 3}
   top: {fileID: 2977880344190128577}
   bulletVFX: {fileID: 1118300075372360588}
+--- !u!95 &3680919838148187171
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752778593511085600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8087a0441e96abc409eaa7141910855d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7180228111333092320
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +507,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6752778593511085630}
     m_Modifications:
+    - target: {fileID: 2402890336381635703, guid: d9037198bebcc8441ab68c5bf7067d95, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2402890336395503757, guid: d9037198bebcc8441ab68c5bf7067d95, type: 3}
       propertyPath: m_Name
       value: LaserMissileFire

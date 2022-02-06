@@ -12,12 +12,14 @@ public class Tower : MonoBehaviour
 
     private float _attackTimer;
     private Monster _target;
+    private Animator _animator;
 
     
     private void Start() {
         transform.localScale = Vector3.zero;
         transform.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack);
 
+        _animator = GetComponent<Animator>();
         Instantiate(buildVFX, transform.position, Quaternion.identity);
     }
 
@@ -75,6 +77,7 @@ public class Tower : MonoBehaviour
             // SFX
             GameManager.Instance.AudioManager.Play("Fire");
             // VFX
+            _animator.SetTrigger("Fire");
             SetLine();
 
             _attackTimer = 1;
